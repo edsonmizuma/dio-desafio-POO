@@ -1,6 +1,4 @@
-import br.com.dio.desafio.dominio.Conteudo;
-import br.com.dio.desafio.dominio.Curso;
-import br.com.dio.desafio.dominio.Mentoria;
+import br.com.dio.desafio.dominio.*;
 
 import java.time.LocalDate;
 
@@ -29,11 +27,40 @@ public class Main {
         mentoria2.setDescricao("Descrição Mentoria js");
         mentoria2.setData(LocalDate.now());
 
-        System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria1);
-        System.out.println(mentoria2);
+//        System.out.println(curso1);
+//        System.out.println(curso2);
+//        System.out.println(mentoria1);
+//        System.out.println(mentoria2);
 
+        Bootcamp bootcamp1 = new Bootcamp();
+        bootcamp1.setNome("Bootcamp Java Developer");
+        bootcamp1.setDescricao("Descrição Bootcamp Java Developer");
+        bootcamp1.getConteudos().add(curso1);
+        bootcamp1.getConteudos().add(curso2);
+        bootcamp1.getConteudos().add(mentoria1);
+
+        Dev dev1 = new Dev();
+        dev1.setNome("Edson");
+        dev1.inscreverBootcamp(bootcamp1);
+        dev1.progredirBootcamp();
+        dev1.progredirBootcamp();
+        System.out.println("-");
+        System.out.println("Conteúdos inscritos Edson: " + dev1.getConteudosInscritos());
+        System.out.println("Conteúdos concluídos Edson: " + dev1.getConteudosConcluidos());
+        System.out.println("XP: " + dev1.calcularXp());
+
+        System.out.println("------------------------------------------------------------------------------------------");
+
+        Dev dev2 = new Dev();
+        dev2.setNome("João");
+        dev2.inscreverBootcamp(bootcamp1);
+        dev2.progredirBootcamp();
+        dev2.progredirBootcamp();
+        dev2.progredirBootcamp();
+        System.out.println("-");
+        System.out.println("Conteúdos inscritos João: " + dev2.getConteudosInscritos());
+        System.out.println("Conteúdos concluídos João: " + dev2.getConteudosConcluidos());
+        System.out.println("XP: " + dev2.calcularXp());
 
     }
 
